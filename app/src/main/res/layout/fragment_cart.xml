@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CartFragment"
+    android:padding="15dp"
+    android:layout_marginTop="3dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/header_cart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Monkee Cart"
+        android:textColor="@color/im_darkblue"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cart_confirm"
+        app:layout_constraintTop_toBottomOf="@+id/header_cart"
+        app:spanCount="4"
+        tools:layout_editor_absoluteX="20dp"
+        android:verticalScrollbarPosition="right"/>
+
+    <Button
+        android:id="@+id/btn_cart_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Print Receipt"
+        android:textSize="10sp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/im_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cartRecyclerView"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="5dp"/>
+
+    <Button
+        android:id="@+id/btn_cart_cancel_order"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/im_magenta"
+        android:text="Cancel Order"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_cart_confirm"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">IceMonkees</string>
+    <string name="navigation_drawer_open">Drawer opened</string>
+    <string name="navigation_drawer_close">Drawer closed</string>
+    <string name="home">Home</string>
+    <string name="order">Order</string>
+    <string name="transactions">Transactions</string>
+    <string name="inventory">Inventory</string>
+    <string name="sign_out">Sign out</string>
+    <string name="logout_confirmation_title">Confirm Logout</string>
+    <string name="logout_confirmation_message">Are you sure you want to logout from the account?</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Go back</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

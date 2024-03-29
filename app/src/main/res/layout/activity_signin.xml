@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInActivity"
+    android:background="@drawable/bg_yellow">
+
+    <LinearLayout
+        android:layout_width="600dp"
+        android:layout_height="500dp"
+        android:background="@drawable/box_round_white"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="675dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:background="@drawable/logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SELLER LOGIN"
+                android:layout_marginTop="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/im_darkblue"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="380dp"
+                android:layout_height="56dp"
+                app:boxCornerRadiusTopStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusBottomEnd="28dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_username"
+                    android:layout_width="380dp"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:hint="Username"
+                    android:inputType="textEmailAddress"
+                    android:textSize="14sp"
+                    android:textColor="@color/im_darkblue"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="380dp"
+                android:layout_height="56dp"
+                app:boxCornerRadiusTopStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusBottomEnd="28dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/im_darkblue">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_password"
+                    android:hint="Password"
+                    android:paddingStart="20dp"
+                    android:layout_width="380dp"
+                    android:layout_height="50dp"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"
+                    android:gravity="center"
+                    android:textColor="@color/im_darkblue"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="SIGN IN"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/im_darkblue"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

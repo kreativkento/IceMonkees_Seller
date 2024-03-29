@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main Brand Colors -->
+    <color name="im_yellow">#FEBD01</color>
+    <color name="im_blue">#5DAEBF</color>
+    <color name="im_magenta">#EE018F</color>
+    <color name="im_darkblue">#2E3957</color>
+
+    <!-- Neutral Brand Colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#1C1C1C</color>
+
+    <!-- Accent Brand Colors -We use light accents only -->
+    <color name="im_accent_yellow">#FCD87E</color>
+    <color name="im_accent_blue">#AADEE5</color>
+    <color name="im_accent_magenta">#ED7AC4</color>
+
+    <!-- Variation (Flavor) Colors -->
+    <color name="flavor_gray">#E8E8E8</color>
+    <color name="flavor_orange">#F6821F</color>
+    <color name="flavor_green">#A8CE3B</color>
+    <color name="flavor_red">#EF1C25</color>
+    <color name="flavor_blue">#8FD8F9</color>
+    <color name="flavor_pink">#FBAACA</color>
+    <color name="flavor_yellow">#FFF004</color>
+    <color name="flavor_purple">#C59ECD</color>
+</resources>

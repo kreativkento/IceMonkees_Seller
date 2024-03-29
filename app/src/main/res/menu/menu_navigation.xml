@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_head"
+        android:title="@string/home"
+        android:orderInCategory="1"
+        android:iconTint="@color/im_darkblue"
+        />
+
+    <item
+        android:id="@+id/navigation_sale"
+        android:icon="@drawable/ic_sale"
+        android:title="@string/order"
+        android:orderInCategory="2"
+        android:iconTint="@color/im_darkblue" />
+
+    <item
+        android:id="@+id/navigation_transactions"
+        android:icon="@drawable/ic_transactions"
+        android:title="@string/transactions"
+        android:orderInCategory="3"
+        android:iconTint="@color/im_darkblue" />
+
+    <item
+        android:id="@+id/navigation_inventory"
+        android:icon="@drawable/ic_inventory"
+        android:title="@string/inventory"
+        android:orderInCategory="4"
+        android:iconTint="@color/im_darkblue" />
+
+    <item
+        android:id="@+id/navigation_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="@string/sign_out"
+        android:orderInCategory="5"
+        android:iconTint="@color/im_darkblue" />
+
+</menu>

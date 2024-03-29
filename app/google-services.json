@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "295082978098",
+    "firebase_url": "https://icemonkees-feb39-default-rtdb.firebaseio.com",
+    "project_id": "icemonkees-feb39",
+    "storage_bucket": "icemonkees-feb39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295082978098:android:81edd6292a040fa191c52b",
+        "android_client_info": {
+          "package_name": "com.example.icemonkees"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm5CmCL5psDW6RxFHr4BqbshSNMbq7U3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295082978098:android:bcfbac52e7d0eee291c52b",
+        "android_client_info": {
+          "package_name": "com.example.icemonkees_seller"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm5CmCL5psDW6RxFHr4BqbshSNMbq7U3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

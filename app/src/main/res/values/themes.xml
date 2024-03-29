@@ -1,0 +1,20 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.IceMonkees" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary Brand Color -->
+        <item name="colorPrimary">@color/im_yellow</item>
+        <item name="colorPrimaryDark">@color/im_darkblue</item>
+
+
+        <!-- Status Bar Color -->
+        <item name="android:statusBarColor" tools:targetApi="1">?attr/colorPrimaryDark</item>
+    </style>
+
+    <style name="Theme.IceMonkees" parent="Base.Theme.IceMonkees" />
+
+    <style name="RoundCorner" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+        <item name="color">@color/white</item>
+    </style>
+</resources>
