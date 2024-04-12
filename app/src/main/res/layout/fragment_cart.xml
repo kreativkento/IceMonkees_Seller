@@ -26,13 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_cart_confirm"
+        app:layout_constraintBottom_toTopOf="@+id/cart_buttons"
         app:layout_constraintTop_toBottomOf="@+id/header_cart"
         app:spanCount="4"
+        android:scrollbars="vertical"
+        android:scrollbarThumbVertical="@color/im_blue"
+        android:fadeScrollbars="false"
+        android:paddingRight="2dp"
+        android:clipToPadding="false"
         tools:layout_editor_absoluteX="20dp"
         android:verticalScrollbarPosition="right"/>
 
     <LinearLayout
+        android:id="@+id/cart_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

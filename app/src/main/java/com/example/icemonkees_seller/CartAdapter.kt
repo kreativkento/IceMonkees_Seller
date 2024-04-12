@@ -22,9 +22,9 @@ class CartAdapter(
             val price: TextView = itemView.findViewById(R.id.cartViewPrice)
             val image: ImageView = itemView.findViewById(R.id.cartViewProduct)
 
-            title.text = cartItem.name
+            title.text = cartItem.product
             price.text = "₱${cartItem.price}"
-            Glide.with(context).load(cartItem.imageUrl).into(image)
+            Glide.with(context).load(cartItem.imageURL).into(image)
 
         }
     }

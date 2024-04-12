@@ -59,30 +59,27 @@ class ProductsAdapter(
         }
 
         private fun addProductToFirestore(product: ProductsData) {
-            val counterRef = firestore.collection("utils").document("counter") // Document to store the current counter
+            val counterRef = firestore.collection("tempID_count").document("counter")
             firestore.runTransaction { transaction ->
                 val snapshot = transaction.get(counterRef)
-                var currentId = snapshot.getLong("currentId") ?: 0 // Get the current ID or start at 0 if it's null
-                currentId += 1 // Increment the ID for the new document
+                var currentId = snapshot.getLong("currentId") ?: 0 // Start at 0 if null
+                currentId += 1 // Increment ID for the new document
 
-                // Prepare the data to be saved in Firestore
                 val productData = hashMapOf(
                     "id" to currentId,
                     "imageURL" to product.imageUrl,
                     "product" to product.name,
                     "price" to product.price,
-                    "timestamp" to FieldValue.serverTimestamp() // Add the current timestamp
+                    "timestamp" to FieldValue.serverTimestamp()  // Current timestamp
                 )
 
-                // Update the counter in Firestore
                 transaction.set(counterRef, hashMapOf("currentId" to currentId))
-
-                // Add the new product data to the temp collection
                 transaction.set(firestore.collection("temp").document(), productData)
             }.addOnSuccessListener {
-                productClickListener.onProductClicked(product)
+                productClickListener.onProductClicked(product)  // Notifies the listener that a product was clicked
+                productClickListener.refreshCartFragment()  // Refresh the cart fragment to update the UI
             }.addOnFailureListener { e ->
-                // Log error or show a toast here
+                // Log the error or show a toast here
             }
         }
     }

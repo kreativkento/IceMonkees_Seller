@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +30,10 @@ class CartFragment : Fragment() {
         return binding.root
     }
 
+    fun refreshCartFragment() {
+        fetchCartItems()
+    }
+
     private fun setupRecyclerView() {
         binding.cartRecyclerView.layoutManager = GridLayoutManager(context, 1)
         cartAdapter = CartAdapter(requireContext(), cartList)
@@ -37,19 +41,18 @@ class CartFragment : Fragment() {
     }
 
     fun fetchCartItems() {
-        // Implementation to fetch cart items from Firestore's 'temp' collection and update the UI
         FirebaseFirestore.getInstance().collection("temp")
+            .orderBy("id")  // Order the results by the 'id' field
             .get()
             .addOnSuccessListener { documents ->
                 cartList.clear()
-                for (document in documents) {
-                    val cartItem = document.toObject(CartData::class.java).copy(documentId = document.id)
+                documents.forEach { document ->
+                    val cartItem = document.toObject(CartData::class.java)
                     cartList.add(cartItem)
                 }
-                cartAdapter.notifyDataSetChanged()
+                cartAdapter.notifyDataSetChanged()  // Notify the adapter that data has changed
             }
             .addOnFailureListener { e ->
-                // Handle error, maybe log or show a toast
                 Log.e("CartFragment", "Error fetching cart items", e)
             }
     }
@@ -116,11 +119,6 @@ class CartFragment : Fragment() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(cartItem: CartData) {
             // Binding logic
-
-            val deleteButton: Button = itemView.findViewById(R.id.btn_cart_delete)
-            deleteButton.setOnClickListener {
-                deleteItem(cartItem.documentId) // This now correctly references the lambda
-            }
         }
     }
 

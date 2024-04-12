@@ -44,6 +44,16 @@ class Dashboard : AppCompatActivity() {
             }
         }
         cartFragment = CartFragment()
+        productsFragment = ProductsFragment().apply {
+            productClickListener = object : ProductClickListener {
+                override fun onProductClicked(product: ProductsData) {
+                    // Implement any specific actions if needed when a product is clicked
+                }
+                override fun refreshCartFragment() {
+                    cartFragment?.fetchCartItems()  // Calls CartFragment to refresh its data
+                }
+            }
+        }
         transactionsFragment = TransactionsFragment()
         inventoryFragment = InventoryFragment()
 
@@ -75,6 +85,7 @@ class Dashboard : AppCompatActivity() {
                         hideAllFragments()
                         show(productsFragment!!)
                         show(cartFragment!!)
+                        cartFragment?.fetchCartItems()  // Refresh data in cartFragment
                         commit()
                     }
                     true
