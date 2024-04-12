@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,18 +37,20 @@ class CartFragment : Fragment() {
     }
 
     fun fetchCartItems() {
-        // Implementation to fetch cart items from Firestore and update the UI
-        FirebaseFirestore.getInstance().collection("cart")
+        // Implementation to fetch cart items from Firestore's 'temp' collection and update the UI
+        FirebaseFirestore.getInstance().collection("temp")
             .get()
             .addOnSuccessListener { documents ->
                 cartList.clear()
-                documents.forEach { document ->
-                    cartList.add(document.toObject(CartData::class.java))
+                for (document in documents) {
+                    val cartItem = document.toObject(CartData::class.java).copy(documentId = document.id)
+                    cartList.add(cartItem)
                 }
                 cartAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
-                // Handle error
+                // Handle error, maybe log or show a toast
+                Log.e("CartFragment", "Error fetching cart items", e)
             }
     }
 
