@@ -13,8 +13,7 @@ import com.bumptech.glide.Glide
 
 class CartAdapter(
     private val context: Context, // Corrected
-    private val cartList: MutableList<CartData>, // Corrected
-    private val deleteItem: (String) -> Unit // Assuming you pass document ID for deletion
+    private val cartList: MutableList<CartData> // Corrected
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -24,13 +23,9 @@ class CartAdapter(
             val image: ImageView = itemView.findViewById(R.id.cartViewProduct)
 
             title.text = cartItem.name
-            price.text = "$${cartItem.price}"
+            price.text = "₱${cartItem.price}"
             Glide.with(context).load(cartItem.imageUrl).into(image)
 
-            val deleteButton: Button = itemView.findViewById(R.id.btn_cart_delete)
-            deleteButton.setOnClickListener {
-                deleteItem(cartItem.documentId) // Call deleteItem lambda with document ID
-            }
         }
     }
 

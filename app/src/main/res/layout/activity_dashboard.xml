@@ -36,25 +36,25 @@
 
             <!-- Main Interface -->
             <FrameLayout
-                android:id="@+id/flFragmentFirst"
+                android:id="@+id/flFragmentPanel1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                app:layout_constraintEnd_toStartOf="@+id/flFragmentSecond"
+                app:layout_constraintEnd_toStartOf="@+id/flFragmentPanel2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.75"
+                app:layout_constraintWidth_percent="0.5"
                 android:background="@drawable/box_round_white_dashboard"
                 />
 
             <!-- Transactions Interface -->
             <FrameLayout
-                android:id="@+id/flFragmentSecond"
+                android:id="@+id/flFragmentPanel2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/flFragmentFirst"
+                app:layout_constraintStart_toEndOf="@+id/flFragmentPanel1"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent="0.20"
+                app:layout_constraintWidth_percent="0.4"
                 android:background="@drawable/box_round_white_dashboard"
                 />
 

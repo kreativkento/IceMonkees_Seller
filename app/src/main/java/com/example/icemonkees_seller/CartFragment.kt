@@ -12,49 +12,48 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.icemonkees_seller.databinding.FragmentCartBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CartFragment : Fragment() {
-
-    private lateinit var cartRecyclerView: RecyclerView
+    private lateinit var binding: FragmentCartBinding
     private lateinit var cartAdapter: CartAdapter
     private var cartList: MutableList<CartData> = mutableListOf()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_cart, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentCartBinding.inflate(inflater, container, false)
 
-        cartRecyclerView = view.findViewById(R.id.cartRecyclerView)
-        cartRecyclerView.layoutManager = GridLayoutManager(context, 1)
-        cartAdapter = CartAdapter(requireContext(), cartList) { documentId ->
-            deleteItem(documentId)
-        }
-        cartRecyclerView.adapter = cartAdapter
-
+        setupRecyclerView()
         fetchCartItems()
 
-        return view
+        return binding.root
     }
 
-    private fun deleteItem(documentId: Any) {
-
+    private fun setupRecyclerView() {
+        binding.cartRecyclerView.layoutManager = GridLayoutManager(context, 1)
+        cartAdapter = CartAdapter(requireContext(), cartList)
+        binding.cartRecyclerView.adapter = cartAdapter
     }
 
-    private fun fetchCartItems() {
-        FirebaseFirestore.getInstance().collection("temp")
+    fun fetchCartItems() {
+        // Implementation to fetch cart items from Firestore and update the UI
+        FirebaseFirestore.getInstance().collection("cart")
             .get()
             .addOnSuccessListener { documents ->
-                cartList.clear() // Clear existing items
-                for (document in documents) {
-                    val item = document.toObject(CartData::class.java).copy(documentId = document.id)
-                    cartList.add(item)
+                cartList.clear()
+                documents.forEach { document ->
+                    cartList.add(document.toObject(CartData::class.java))
                 }
                 cartAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
-                // Handle errors, e.g., logging or showing a user message
+                // Handle error
             }
+    }
+
+
+    private fun deleteItem(documentId: Any) {
+
     }
 
 
@@ -97,6 +96,20 @@ class CartFragment : Fragment() {
             }
     }
 
+    private fun showConfirmationDialog() {
+        AlertDialog.Builder(requireContext()).apply {
+            setTitle("Cancel Order")
+            setMessage("Are you sure to cancel order? This would discard all items added in your cart.")
+            setPositiveButton("Clear") { dialog, which ->
+                deleteAllItemsInCollection()
+            }
+            setNegativeButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+            }
+            show()
+        }
+    }
+
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(cartItem: CartData) {
             // Binding logic
@@ -107,6 +120,5 @@ class CartFragment : Fragment() {
             }
         }
     }
-
 
 }
